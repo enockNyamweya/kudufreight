@@ -1,5 +1,6 @@
 #include "PostgresFactory.h"
+#include "PostgresConnector.h"
 
 Connector* PostgresFactory::createConnector(){
-    return nullptr;
+    return new PostgresConnector();
 }

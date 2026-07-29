@@ -1,5 +1,6 @@
 #include "RestApiFactory.h"
+#include "RestApiConnector.h"
 
 Connector* RestApiFactory::createConnector(){
-    return nullptr;
+    return new RestApiConnector();
 }

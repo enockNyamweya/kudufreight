@@ -9,5 +9,7 @@ Transformation* AggregateByRegionStep::clone() {
 }
 
 std::vector<std::string> AggregateByRegionStep::apply(std::vector<std::string> records) {
-    return records;
+    std::vector<std::string> result;
+    result.push_back("COUNT=" + std::to_string(records.size()));
+    return result;
 }

@@ -7,9 +7,10 @@
 #include <map>
 #include "Connector.h"
 
-class CsvConnector: public Connector{
+class CsvConnector: public Connector {
     public:
-        std::vector<std::string> extract();
+        CsvConnector() : Connector("csv");
+        std::vector<std::string> extract() override;
 };
 
 #endif

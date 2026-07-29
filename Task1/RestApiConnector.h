@@ -9,7 +9,8 @@
 
 class RestApiConnector: public Connector{
     public:
-        std::vector<std::string> extract();
+        RestApiConnector() : Connector("restapi"){}
+        std::vector<std::string> extract() override;
 };
 
 #endif

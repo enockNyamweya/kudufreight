@@ -9,7 +9,7 @@
 
 class PostgresFactory: public ConnectorFactory{
     public:
-        Connector* createConnector();
+        Connector* createConnector() override;
 };
 
 #endif
