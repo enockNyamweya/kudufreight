@@ -1,5 +1,6 @@
 #include "CsvFactory.h"
+#include "CsvConnector.h"
 
 Connector* CsvFactory::createConnector(){
-    return nullptr;
+    return new CsvConnector();
 }
