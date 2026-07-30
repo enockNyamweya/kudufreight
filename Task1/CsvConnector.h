@@ -9,7 +9,7 @@
 
 class CsvConnector: public Connector {
     public:
-        CsvConnector() : Connector("csv");
+        CsvConnector() : Connector("csv"){}
         std::vector<std::string> extract() override;
 };
 
