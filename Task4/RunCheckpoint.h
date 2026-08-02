@@ -8,6 +8,7 @@ class RunCheckpoint {
 private:
     int stage;
     std::vector<std::string> records;
+
 public:
     RunCheckpoint(int stage, std::vector<std::string> records);
     int getStage();

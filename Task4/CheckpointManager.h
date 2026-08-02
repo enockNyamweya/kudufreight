@@ -8,10 +8,13 @@ class RunCheckpoint;
 class CheckpointManager {
 private:
     std::vector<RunCheckpoint*> history;
+
 public:
+    CheckpointManager() = default;
+    ~CheckpointManager();
+
     void save(RunCheckpoint* cp);
     RunCheckpoint* undo();
-    ~CheckpointManager();
 };
 
 #endif

@@ -1,14 +1,21 @@
 #include "CheckpointManager.h"
 #include "RunCheckpoint.h"
 
-void CheckpointManager::save(RunCheckpoint* cp) {
+CheckpointManager::~CheckpointManager() {
+    history.clear();
+}
 
+void CheckpointManager::save(RunCheckpoint* cp) {
+    if (cp != nullptr) {
+        history.push_back(cp);
+    }
 }
 
 RunCheckpoint* CheckpointManager::undo() {
-    return nullptr;
-}
-
-CheckpointManager::~CheckpointManager() {
-
+    if (history.empty()) {
+        return nullptr;
+    }
+    RunCheckpoint* last = history.back();
+    history.pop_back();
+    return last;
 }

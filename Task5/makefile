@@ -16,5 +16,15 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+coverage: CXXFLAGS += --coverage
+coverage: clean $(TARGET)
+	./$(TARGET)
+	gcov $(SRCS)
+
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJS) $(TARGET) *.gcno *.gcda *.gcov
+
+.PHONY: all clean coverage
