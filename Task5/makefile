@@ -24,7 +24,10 @@ coverage: clean $(TARGET)
 	./$(TARGET)
 	gcov $(SRCS)
 
-clean:
-	rm -f $(OBJS) $(TARGET) *.gcno *.gcda *.gcov
+valgrind: $(TARGET)
+	valgrind --leak-check=full ./$(TARGET)
 
-.PHONY: all clean coverage
+clean:
+	rm -f $(OBJS) $(TARGET) *.gcno *.gcda *.gcov ../Task*/*.gcno ../Task*/*.gcda ../Task*/*.gcov
+
+.PHONY: all clean coverage valgrind
